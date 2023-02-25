@@ -48,7 +48,7 @@ class StepTracker {
         System.out.println("Среднее количество шагов в месяце: " + (selectMonth.sumStepsFromMonth() / 30));
         System.out.println("Пройденная дистанция в месяце: " + (converter.convertToKm(selectMonth.sumStepsFromMonth())) + " километров.");
         System.out.println("Количество сожжённых килокалорий в месяце: " + (converter.convertStepsToKilocalories(selectMonth.sumStepsFromMonth())));
-        System.out.println("Лучшая серия выполнения цели в этом месяце состовляет: " + selectMonth.bestSeries(goalByStepsPerDay) + " дней.");
+        System.out.println("Лучшая серия выполнения цели в этом месяце составляет: " + selectMonth.bestSeries(goalByStepsPerDay) + " дней.");
     }
 }
 
