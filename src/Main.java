@@ -4,12 +4,10 @@ class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Date date = new Date();
-        MonthData monthData = new MonthData();
         StepTracker stepTracker = new StepTracker(scanner);
 
         while (true) {
             System.out.println(date);
-            monthData.sumStepsFromMonth();
             printMenu();
             int i = scanner.nextInt();
             if (i == 1) {

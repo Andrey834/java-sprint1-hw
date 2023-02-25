@@ -11,32 +11,25 @@ class StepTracker {
         }
     }
     void addNewNumberStepsPerDay() {
-        while (true) {
-            System.out.println("Введите номер месяца от 1 до 12 (включительно)");
-            int month = scanner.nextInt();
-
-            if (month > 0 && month < 13) {
-                System.out.println("Введите день от 1 до 30 (включительно) ");
-                int day = scanner.nextInt();
-                if (day > 0 && day < 31) {
-                    System.out.println("Введите количество шагов");
-                    int step = scanner.nextInt();
-                    if (step > 0) {
-                        monthToData[month-1].days[day - 1] = step;
-                    } else {
-                        System.out.println("Введеное вами значение " + step + "неверно." + "Используйте положительное значение");
-                        break;
-                    }
+        System.out.println("Введите номер месяца от 1 до 12 (включительно):");
+        int month = scanner.nextInt();
+        if (month > 0 && month < 13) {
+            System.out.println("Введите день от 1 до 30 (включительно):");
+            int day = scanner.nextInt();
+            if (day > 0 && day < 31) {
+            System.out.println("Введите количество шагов:");
+                int step = scanner.nextInt();
+                if (step > 0) {
+                monthToData[month-1].days[day - 1] = step;
                 } else {
-                    System.out.println("Под номером " + day + " нет дня!");
-                    break;
+            System.out.println("Введеное вами значение " + step + " неверно. " + " Используйте положительное значение!");
                 }
             } else {
-                System.out.println("Под номером " + month + " нет месяца!");
-                break;
+            System.out.println("Под номером " + day + " нет дня!");
             }
-            break;
-        }
+        } else {
+            System.out.println("Под номером " + month + " нет месяца!");
+            }
     }
     void changeStepGoal() {
         System.out.println("Ваша текущая цель состовляет: " + goalByStepsPerDay + " шагов.");
@@ -47,14 +40,15 @@ class StepTracker {
     void printStatistic() {
         System.out.print("Введите номер месяца :");
         int month = scanner.nextInt();
+        MonthData selectMonth = monthToData[month - 1];
         System.out.println("Количество пройденых шагов по дням:");
-        monthToData[month-1].printDaysAndStepsFromMonth();
-        System.out.println("Количество пройденых шагов за месяц: " + monthToData[month-1].sumStepsFromMonth());
-        System.out.println("Максимальное количество шагов в месяце за день: " + monthToData[month-1].maxSteps());
-        System.out.println("Среднее количество шагов в месяце: " + (monthToData[month-1].sumStepsFromMonth() / 30));
-        System.out.println("Пройденная дистанция в месяце: " + (converter.convertToKm(monthToData[month-1].sumStepsFromMonth()) * 0.75) + " километров.");
-        System.out.println("Количество сожжённых килокалорий в месяце: " + (converter.convertStepsToKilocalories(monthToData[month-1].sumStepsFromMonth()) / 1000));
-        System.out.println("Лучшая серия выполнения цели в этом месяце состовляет: " + monthToData[month-1].bestSeries(goalByStepsPerDay) + " дней.");
+        selectMonth.printDaysAndStepsFromMonth();
+        System.out.println("Количество пройденых шагов за месяц: " + selectMonth.sumStepsFromMonth());
+        System.out.println("Максимальное количество шагов в месяце за день: " + selectMonth.maxSteps());
+        System.out.println("Среднее количество шагов в месяце: " + (selectMonth.sumStepsFromMonth() / 30));
+        System.out.println("Пройденная дистанция в месяце: " + (converter.convertToKm(selectMonth.sumStepsFromMonth())) + " километров.");
+        System.out.println("Количество сожжённых килокалорий в месяце: " + (converter.convertStepsToKilocalories(selectMonth.sumStepsFromMonth())));
+        System.out.println("Лучшая серия выполнения цели в этом месяце состовляет: " + selectMonth.bestSeries(goalByStepsPerDay) + " дней.");
     }
 }
 

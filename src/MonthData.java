@@ -27,9 +27,9 @@ class MonthData {
         int currentSeries = 0;
         int finalSeries = 0;
         for (int i = 0; i < days.length; i++) {
-            if (days[i]>=goal) {
+            if (days[i] >= goal) {
                 if (++currentSeries > finalSeries) {
-                    finalSeries = finalSeries +1;
+                    finalSeries = finalSeries + 1;
                 }
             } else {
                 currentSeries = 0;
