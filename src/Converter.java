@@ -8,5 +8,3 @@ class Converter {
         return stepsToKilocolries;
     }
 }
-
-

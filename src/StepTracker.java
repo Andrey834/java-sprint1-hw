@@ -51,17 +51,3 @@ class StepTracker {
         System.out.println("Лучшая серия выполнения цели в этом месяце составляет: " + selectMonth.bestSeries(goalByStepsPerDay) + " дней.");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
